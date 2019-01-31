@@ -2,8 +2,10 @@ package gadek.com;
 
 //complex numbers
 public class Complex {
-
+	
+	//real numbers
 	private double re;
+	//imaginary numbers
 	private double im;
 	public Complex(double x) {
 		re=x;
