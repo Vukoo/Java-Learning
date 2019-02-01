@@ -14,11 +14,9 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class OddOccurrencesInArray {
+public class Codility {
 	@Test
     public void FizzBuzzV2(){
-		
-		
         assertEquals("Fizz", FizzBuzzOneLine(3));
         assertEquals("Buzz", FizzBuzzOneLine(5));
         assertEquals("FizzBuzz", FizzBuzzOneLine(15));
@@ -31,36 +29,6 @@ public class OddOccurrencesInArray {
 	 * 
 	 */
 	public static void main(String[] args) {
-		//int[] k = new int[] { 3, 8, 9, 7,6 };
-		//cyclicRotation(k,3 );
-		//frogJmp(10, 85, 30);
-		//PermMissingElem(new int[] {2,3,1,5});
-		//System.out.println(fizzBuzz(14));
-		//FizzBuzzIntStream();
-		
-//		Scanner sc = new Scanner(System.in);
-//		String str;
-//		String[] tabstr;
-//		str = sc.nextLine();
-//		System.out.println(str);
-//		tabstr =  str.split(" ");
-//		System.out.println(tabstr[1]);
-//		triangle tr = new triangle(Double.parseDouble(tabstr[0]), Double.parseDouble(tabstr[0]),Double.parseDouble(tabstr[0]));
-		
-		
-
-
-		
-		Triangle example = new Triangle();
-		try {
-			example.readPositiveInt();
-		} catch (InvalidNameException e) {
-			e.printStackTrace();
-		}
-		System.out.println("Pole " + example.area() );
-		Scanner sc = new Scanner(System.in);
-		sc.nextInt();
-		sc.close();
 
 	}
 	
@@ -70,7 +38,6 @@ public class OddOccurrencesInArray {
 		result.append((number % 3 == 0 ? "Fizz": "") + (number % 5 == 0 ? "Buzz" : ""));
 		return result.length() > 0 ? result.toString() : String.valueOf(number);
 	}
-	
 	//FizzBuzz for 100 numbers 
 	public static void FizzBuzzIntStream() {
 		IntStream.rangeClosed(0, 100).mapToObj(
@@ -102,7 +69,7 @@ public class OddOccurrencesInArray {
 		return elem;
 	}
 	
-	// Cyclice Rotatiojn two array
+	// Cyclice Rotation two array
 	public static int[] cyclicRotation(int[] A, int K) {
 		int[] right = new int[1];
 		int[] left = new int[A.length-1];
@@ -171,38 +138,7 @@ public class OddOccurrencesInArray {
 		}
 		return 1;
 	}
-	
-	//Nie kapuje
-	public static int permCheck2(int A[]) {
-		Set<Integer> set = new HashSet<Integer>();
-		boolean isNumber = false;
-		for(int i : A) {
-			set.add(i);
-		}
-		for (int i = 1; i <= A.length; i++) {
-			if (!set.contains(i)) { 
-				isNumber = true;
-			    break;}
-		}
-		return isNumber ? 0 : 1;
-		}
-	
-	//Nie kapuje
-	public static int FrogRiverOne(int X, int[] A) {
-		int step=-1;
-		Set<Integer> values = new TreeSet<Integer>();
-		for(int i =0; i < A.length; i++) {
-			if(A[i] <= X){
-				values.add(A[i]);
-	        }
-	        if(values.size()==X){
-	            step=i;
-	            break;
-			}
-		}
-		return step;
-	}
-	
+		
 	public static int MissingInteger(int A[]) {
 		HashSet<Integer> number = new HashSet<Integer>();
 		int elem = 1;
