@@ -1,6 +1,6 @@
-package gadek.com.decorator.decorating2;
+package gadek.com.decorator.decorating;
 
-import gadek.com.decorator2.Potion;
+import gadek.com.decorator.Potion;
 
 public class Milk extends Additives {
 	
