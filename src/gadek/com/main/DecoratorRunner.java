@@ -8,11 +8,11 @@ import gadek.com.decorator.decorating.BottleCage;
 import gadek.com.decorator.decorating.Carrier;
 import gadek.com.decorator.decorating.FrontFender;
 import gadek.com.decorator.decorating.RearFender;
-import gadek.com.decorator.decorating2.Milk;
-import gadek.com.decorator.decorating2.Sugar;
-import gadek.com.decorator2.Coffe;
-import gadek.com.decorator2.Potion;
-import gadek.com.decorator2.Tea;
+import gadek.com.decorator.decorating.Milk;
+import gadek.com.decorator.decorating.Sugar;
+import gadek.com.decorator.Coffe;
+import gadek.com.decorator.Potion;
+import gadek.com.decorator.Tea;
 
 public class DecoratorRunner {
 	 
@@ -20,7 +20,7 @@ public class DecoratorRunner {
         System.out.println("Wzorzec projektowy Dekorator");
  
         Bike cityBike = new CityBike();
-        System.out.println("Waga roweru miejskiego bez akcesori體: " + String.format("%.4g", cityBike.getWeight()));
+        System.out.println("Waga roweru miejskiego bez akcesori贸w: " + String.format("%.4g", cityBike.getWeight()));
         
         //dekorowanie
         cityBike = new Carrier(cityBike);
@@ -31,7 +31,7 @@ public class DecoratorRunner {
         System.out.println("Waga roweru miejskiego z akcesoriami: " + String.format("%.4g", cityBike.getWeight()));
  
         Bike roadBike = new RoadBike();
-        System.out.println("Waga roweru szosowego bez akcesori體: " + String.format("%.4g", roadBike.getWeight()));
+        System.out.println("Waga roweru szosowego bez akcesori贸w: " + String.format("%.4g", roadBike.getWeight()));
  
         roadBike = new BottleCage(roadBike);
  
@@ -42,16 +42,16 @@ public class DecoratorRunner {
         System.out.println("Wzorzec projektowy Dekorator");
         //obiekt dekorowany
         Potion healt = new Coffe();
-        System.out.println("Nap骿 kawa bez dodatk體: " + String.format("%.4g", healt.getPrice()));
+        System.out.println("Nap贸j kawa bez dodatk贸w: " + String.format("%.4g", healt.getPrice()));
         
         //dekorowanie
         healt = new Milk(healt);
         healt = new Sugar(healt);
  
-        System.out.println("Nap骿 wraz z dodatkami: " + String.format("%.4g", healt.getPrice()));
+        System.out.println("Nap贸j wraz z dodatkami: " + String.format("%.4g", healt.getPrice()));
  
         Potion mana = new Tea();
-        System.out.println("Nap骿 herbata: " + String.format("%.4g", mana.getPrice()));
+        System.out.println("Nap贸j herbata: " + String.format("%.4g", mana.getPrice()));
  
         mana = new Milk(mana);
  
