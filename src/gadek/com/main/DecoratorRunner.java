@@ -1,50 +1,24 @@
 package gadek.com.decorator.main;
 
-import gadek.com.decorator.Bike;
-import gadek.com.decorator.CityBike;
-import gadek.com.decorator.RoadBike;
-import gadek.com.decorator.decorating.BicycleBell;
-import gadek.com.decorator.decorating.BottleCage;
-import gadek.com.decorator.decorating.Carrier;
-import gadek.com.decorator.decorating.FrontFender;
-import gadek.com.decorator.decorating.RearFender;
-import gadek.com.decorator.decorating.Milk;
-import gadek.com.decorator.decorating.Sugar;
-import gadek.com.decorator.Coffe;
-import gadek.com.decorator.Potion;
-import gadek.com.decorator.Tea;
+import gadek.com.decorator.component.Milk;
+import gadek.com.decorator.component.Sugar;
+import gadek.com.decorator.decorator.Coffe;
+import gadek.com.decorator.decorator.Potion;
+import gadek.com.decorator.decorator.Tea;
 
 public class DecoratorRunner {
 	 
     public static void main(String[] args) {
+ 
         System.out.println("Wzorzec projektowy Dekorator");
- 
-        Bike cityBike = new CityBike();
-        System.out.println("Waga roweru miejskiego bez akcesoriów: " + String.format("%.4g", cityBike.getWeight()));
-        
-        //dekorowanie
-        cityBike = new Carrier(cityBike);
-        cityBike = new RearFender(cityBike);
-        cityBike = new FrontFender(cityBike);
-        cityBike = new BicycleBell(cityBike);
- 
-        System.out.println("Waga roweru miejskiego z akcesoriami: " + String.format("%.4g", cityBike.getWeight()));
- 
-        Bike roadBike = new RoadBike();
-        System.out.println("Waga roweru szosowego bez akcesoriów: " + String.format("%.4g", roadBike.getWeight()));
- 
-        roadBike = new BottleCage(roadBike);
- 
-        System.out.println("Waga roweru szosowego z akcesoriami: " + String.format("%.4g", roadBike.getWeight()));
-        
-        
-        
-        System.out.println("Wzorzec projektowy Dekorator");
-        //obiekt dekorowany
+        //Decorated object
         Potion healt = new Coffe();
         System.out.println("Napój kawa bez dodatków: " + String.format("%.4g", healt.getPrice()));
         
-        //dekorowanie
+        /*
+        *Decorating object
+        * magic starts here
+        */
         healt = new Milk(healt);
         healt = new Sugar(healt);
  
