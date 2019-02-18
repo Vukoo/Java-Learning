@@ -34,7 +34,7 @@ public class Triangle {
 			return (Math.pow(number[0],2)* Math.sqrt(3))/4;
 		}
 		
-		
+		//shouldn't be here 
 		public void readPositiveInt() throws InvalidNameException {
 			
 			String[] textTab= new String[3];
@@ -45,13 +45,12 @@ public class Triangle {
 			 number = new double[] {Double.parseDouble(textTab[0]),Double.parseDouble(textTab[1]),Double.parseDouble(textTab[2])};
 			}
 			catch (NumberFormatException e){ 
-				System.out.println("Pole z³y format! Wpisz ponownie");
+				System.out.println("Bad format! Try again");
 				readPositiveInt();
 			}
 			catch (ArrayIndexOutOfBoundsException e) {
-	           // throw new InvalidNameException("Missing number ");
-				System.out.println("Wpisz trzy cyfry!");
-	            readPositiveInt();
+				System.out.println("Enter three digits!");
+	            		readPositiveInt();
 			}
 			
 		}
