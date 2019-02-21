@@ -18,7 +18,6 @@ public class Triangle {
 		
 		public double area() {
 			Arrays.sort(number);
-			
 			if(isTrangle())
 			return (number[0]*number[1])/2;
 			else return -1;
@@ -34,9 +33,8 @@ public class Triangle {
 			return (Math.pow(number[0],2)* Math.sqrt(3))/4;
 		}
 		
-		//shouldn't be here 
+		//bad
 		public void readPositiveInt() throws InvalidNameException {
-			
 			String[] textTab= new String[3];
 			Scanner sc = new Scanner(System.in);
 			try {
@@ -49,8 +47,8 @@ public class Triangle {
 				readPositiveInt();
 			}
 			catch (ArrayIndexOutOfBoundsException e) {
-				System.out.println("Enter three digits!");
-	            		readPositiveInt();
+				System.out.println("Enter tree digits");
+	            readPositiveInt();
 			}
 			
 		}

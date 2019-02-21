@@ -1,6 +1,5 @@
 package gadek.com.builder;
 
-import java.util.Date;
 
 public class Employee {
 

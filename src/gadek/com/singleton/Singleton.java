@@ -1,7 +1,5 @@
 package gadek.com.singleton;
 
-import java.io.Serializable;
-
 /*
  * Singleton 
  * serialization and thread-safe guaranteed
