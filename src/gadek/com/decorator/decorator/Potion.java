@@ -1,4 +1,4 @@
-package gadek.com.decorator;
+package gadek.com.decorator.decorator;
 
 
 public abstract class Potion {
