@@ -23,7 +23,8 @@ public class JavaStreamMain {
 
         User humanCaterpillar = userList.stream().reduce(new User("head","tail",0), JavaStreamMain::addUser);
         assertEquals(humanCaterpillar.getName(), "headPeterJohn");
-
+        benchmarkParaller();
+        benchmarkWithoutParaller();
 
     }
 
@@ -47,5 +48,30 @@ public class JavaStreamMain {
                 .parallelStream()
                 .reduce(
                         0, JavaStreamMain::sum, Integer::sum);
+    }
+
+    public static void benchmarkParaller()
+    {
+        long startTime = System.currentTimeMillis();
+        final Integer integer = parallerReduceStream(generateRandomUser());
+        long endTime = System.currentTimeMillis();
+        System.out.println("Total benchmarkTest Parallel execution time: " + (endTime-startTime) + "ms");
+    }
+
+    public static void benchmarkWithoutParaller()
+    {
+        long startTime = System.currentTimeMillis();
+        final Integer reduce = generateRandomUser().stream().reduce(0, JavaStreamMain::sum, Integer::sum);
+        long endTime = System.currentTimeMillis();
+        System.out.println("Total benchmarkTest2 execution time: " + (endTime-startTime) + "ms");
+    }
+
+    public static List<User> generateRandomUser(){
+        List<User> userList = new ArrayList<>();
+        for (int i = 0; i <100000000 ; i++) {
+            User user = new User("a", "sa", (int) Math.random());
+            userList.add(user);
+        }
+        return userList;
     }
 }
