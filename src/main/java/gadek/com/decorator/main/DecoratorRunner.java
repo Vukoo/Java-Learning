@@ -13,7 +13,7 @@ public class DecoratorRunner {
         System.out.println("Wzorzec projektowy Dekorator");
         //decorated object
         Potion healt = new Coffe();
-        System.out.println("Napój kawa bez dodatków: " + String.format("%.4g", healt.getPrice()));
+        System.out.println("Napoj kawa bez dodatkow: " + String.format("%.4g", healt.getPrice()));
         
         /*
          * Decorating 
@@ -22,9 +22,9 @@ public class DecoratorRunner {
         healt = new Milk(healt);
         healt = new Sugar(healt);
  
-        System.out.println("Napój wraz z dodatkami: " + String.format("%.4g", healt.getPrice()));
+        System.out.println("Napoj wraz z dodatkami: " + String.format("%.4g", healt.getPrice()));
         Potion mana = new Tea();
-        System.out.println("Napój herbata: " + String.format("%.4g", mana.getPrice()));
+        System.out.println("Napoj herbata: " + String.format("%.4g", mana.getPrice()));
         mana = new Milk(mana);
         System.out.println("Herbatka z mlekiem: " + String.format("%.4g", mana.getPrice()));
     }		

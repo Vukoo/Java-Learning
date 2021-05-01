@@ -1,17 +1,16 @@
 package gadek.com.decorator;
 
-public class Tea extends Potion {
+public class Coffe extends Potion {
 	
-
 	@Override
 	public float getPrice() {
-		return 5f;
+		return 10f;
 	}
 
 	@Override
 	public String getName() {
-		// TODO Auto-generated method stub
-		return "Zwyk³a herbata";
+		return "Zwykla kawa";
 	}
 	
+
 }
