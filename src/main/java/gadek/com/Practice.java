@@ -28,7 +28,7 @@ public class Practice {
 	// Fizz Buzz for one number
 		public String FizzBuzzOneLine (int number) {
 			StringBuilder result = new StringBuilder();
-			result.append((number % 3 == 0 ? "Fizz": "") + (number % 5 == 0 ? "Buzz" : ""));
+			result.append(number % 3 == 0 ? "Fizz" : "").append(number % 5 == 0 ? "Buzz" : "");
 			return result.length() > 0 ? result.toString() : String.valueOf(number);
 		}
 		
@@ -58,9 +58,9 @@ public class Practice {
 			//unique elements
 			HashSet<Integer> dups = new HashSet<Integer>();
 			int elem = -1;
-			for (int i = 0; i < A.length; i++) {
-				if (dups.add(A[i])) {
-					elem = A[i];
+			for (int j : A) {
+				if (dups.add(j)) {
+					elem = j;
 				}
 			}
 			return elem;
@@ -143,9 +143,9 @@ public class Practice {
 			HashSet<Integer> number = new HashSet<Integer>();
 			int elem = 1;
 			//add all element to Set
-			for (int i = 0; i < A.length; i++) {
-				number.add(A[i]);
-				}
+			for (int j : A) {
+				number.add(j);
+			}
 			//check if hashset contain element if not return them
 			while(number.contains(elem)) {
 				elem++;

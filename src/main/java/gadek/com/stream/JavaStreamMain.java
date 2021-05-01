@@ -17,8 +17,23 @@ public class JavaStreamMain {
         assertEquals(resultString, "hej jak sie masz?");
         assertThrows(NullPointerException.class,() -> stringList.stream().reduce(null,String::concat));
 
-        List<User> userList = Arrays.asList(new User("Peter","Coding", 123), new User("John","Wick", 11) );
-        Integer userAgeSum = userList.stream().reduce(0, (partialAge, user) -> partialAge + user.getAge(), Integer::sum);
-        assertEquals(userAgeSum,134);
+        List<User> userList = Arrays.asList(new User("Peter","Coding", 123), new User("John","Wick", null) );
+        Integer userAgeSum = userList.stream().reduce(0, JavaStreamMain::sum, Integer::sum);
+        final Integer integer = parallerReduceStream(userList);
+    }
+
+    private static Integer sum(Integer partialAge, User user) {
+        try{
+            return partialAge + user.getAge();
+        } catch (NullPointerException e){
+            return partialAge;
+        }
+    }
+
+    public static Integer parallerReduceStream(List<User> userList ) {
+        return userList
+                .parallelStream()
+                .reduce(
+                        0, (partialAgeResult, user) -> partialAgeResult + user.getAge(), Integer::sum);
     }
 }
