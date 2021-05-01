@@ -20,6 +20,18 @@ public class JavaStreamMain {
         List<User> userList = Arrays.asList(new User("Peter","Coding", 123), new User("John","Wick", null) );
         Integer userAgeSum = userList.stream().reduce(0, JavaStreamMain::sum, Integer::sum);
         final Integer integer = parallerReduceStream(userList);
+
+        User humanCaterpillar = userList.stream().reduce(new User("head","tail",0), JavaStreamMain::addUser);
+        assertEquals(humanCaterpillar.getName(), "headPeterJohn");
+
+
+    }
+
+    public static User addUser(User humanCaterpillar, User user){
+        humanCaterpillar.setAge(sum(0, user));
+        humanCaterpillar.setName(humanCaterpillar.getName() + user.getName());
+        humanCaterpillar.setSurname(humanCaterpillar.getSurname() + user.getSurname());
+        return humanCaterpillar;
     }
 
     private static Integer sum(Integer partialAge, User user) {
@@ -34,6 +46,6 @@ public class JavaStreamMain {
         return userList
                 .parallelStream()
                 .reduce(
-                        0, (partialAgeResult, user) -> partialAgeResult + user.getAge(), Integer::sum);
+                        0, JavaStreamMain::sum, Integer::sum);
     }
 }
