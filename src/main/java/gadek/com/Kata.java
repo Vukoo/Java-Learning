@@ -2,12 +2,10 @@ package gadek.com;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 import static java.util.stream.IntStream.of;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -78,5 +76,68 @@ public class Kata {
         return unique.stream().mapToInt(i -> i).toArray();
     }
 
+    public static boolean validParentheses(String parens)
+    {
+        List<Character> leftChar = new ArrayList<>();
+        List<Character> rightChar = new ArrayList<>();
+        char left = ')';
+        char right = '(';
+        for (char sign: parens.toCharArray()) {
+            if(sign == left){
+                leftChar.add(sign);
+            } else if(sign == right){
+                if(leftChar.size() > rightChar.size()){
+                    return false;
+                }
+                rightChar.add(right);
+            }
+        }
+        if(rightChar.size() == leftChar.size() || (rightChar.isEmpty() && leftChar.isEmpty())){
+            return true;
+        } else {
+            return false;
+        }
+    }
 
+    @Test
+    public void sampleTest() {
+        // assertEquals("expected", "actual");
+        assertEquals(true,validParentheses( "()" ));
+        assertEquals(false,validParentheses( "())" ));
+        assertEquals(true,validParentheses( "32423(sgsdg)" ));
+        assertEquals(false,validParentheses( "(dsgdsg))2432" ));
+        assertEquals(true,validParentheses( "adasdasfa" ));
+        assertEquals(false,validParentheses( ")(" ));
+        assertEquals(true,validParentheses( "" ));
+    }
+
+    public static String reverseWords(String str) {
+        StringBuilder buffer = new StringBuilder();
+        String[] split = str.split(" ");
+        Stream.of(split)
+                .collect(Collectors.toCollection(ArrayDeque::new))
+                .descendingIterator().forEachRemaining(word -> {
+            buffer.append(word);
+            buffer.append(" ");
+
+        });
+        return buffer.substring(0,buffer.length()-1);
+    }
+    public static String reverseWordsCollection(String str){
+        //write your code here...
+        List Words = Arrays.asList(str.split(" "));
+        Collections.reverse(Words);
+        return String.join(" ", Words);
+    }
+
+    static IntStream revRange(int from, int to) {
+        return IntStream.range(from, to)
+                .map(i -> to - i + from - 1);
+    }
+    @Test
+    public void testSomething() {
+        assertEquals("eating like I", reverseWords("I like eating"));
+        assertEquals("flying like I", reverseWords("I like flying"));
+        assertEquals("nice is world The", reverseWords("The world is nice"));
+    }
 }
