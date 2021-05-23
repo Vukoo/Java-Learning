@@ -140,4 +140,30 @@ public class Kata {
         assertEquals("flying like I", reverseWords("I like flying"));
         assertEquals("nice is world The", reverseWords("The world is nice"));
     }
+
+
+    static String removeExclamationMarks(String s) {
+        return s.replace("!", "");
+    }
+    public static String greet(String name)
+    {
+        return "Hello, " + name + " how are you doing today?";
+    }
+
+    public static long findNextSquare(long sq) {
+        Double sqrt = Math.sqrt(sq);
+        Long result = -1L;
+        if(Math.ceil(sqrt) == Math.floor(sqrt)){
+            sqrt += 1;
+            result =  sqrt.longValue();
+            Double pow = Math.pow(result,2);
+            result = pow.longValue();
+        }
+        return result;
+    }
+
+    public static boolean isSquare(int n) {
+        return n >= 0 ? Math.ceil(Math.sqrt(n)) == Math.floor(Math.sqrt(n)) : false;
+    }
+
 }
